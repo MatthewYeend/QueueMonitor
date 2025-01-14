@@ -1,6 +1,6 @@
 {
-    "name": "mattyeend/prevent-destructive-commands",
-    "description": "A Laravel package to stop destructive commands.",
+    "name": "mattyeend/queue-monitor",
+    "description": "A Laravel package to monitor queue logs.",
     "type": "library",
     "license": "MIT",
     "keywords": [
