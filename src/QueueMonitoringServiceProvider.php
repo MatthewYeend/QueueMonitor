@@ -5,7 +5,7 @@ namespace MattYeend\QueueMonitor;
 use Illuminate\Support\ServiceProvider;
 use MattYeend\QueueMonitor\Services\QueueMonitorService;
 
-class QueueMonitorServiceProvider extends ServiceProvider
+class QueueMonitoringServiceProvider extends ServiceProvider
 {
     public function register()
     {
