@@ -1,6 +1,6 @@
 <?php 
 
-namespace MattYeend\QueueMonitor\Models;
+namespace MattYeend\QueueMonitoring\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

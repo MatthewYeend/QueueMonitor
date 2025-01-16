@@ -1,8 +1,8 @@
 <?php
 
-namespace MattYeend\QueueMonitor\Http\Controllers;
+namespace MattYeend\QueueMonitoring\Http\Controllers;
 
-use MattYeend\QueueMonitor\Services\QueueMonitorService;
+use MattYeend\QueueMonitoring\Services\QueueMonitorService;
 
 class QueueMonitorController extends Controller
 {

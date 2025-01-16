@@ -1,8 +1,8 @@
 <?php
 
-namespace MattYeend\QueueMonitor\Services;
+namespace MattYeend\QueueMonitoring\Services;
 
-use MattYeend\QueueMonitor\Models\QueueStats;
+use MattYeend\QueueMonitoring\Models\QueueStats;
 
 class QueueMonitorService
 {

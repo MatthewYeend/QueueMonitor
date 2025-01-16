@@ -1,6 +1,6 @@
 <?php
 
-namespace MattYeend\QueueMonitor;
+namespace MattYeend\QueueMonitoring;
 
 use Illuminate\Support\ServiceProvider;
 use MattYeend\QueueMonitor\Services\QueueMonitorService;
@@ -11,7 +11,7 @@ class QueueMonitoringServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/config/queue-monitor.php', 'queue-monitor');
 
-        $this->app->singeton(QueueMonitorService::class, function ($app) {
+        $this->app->singleton(QueueMonitorService::class, function ($app) {
             return new QueueMonitorService();
         });
     }
