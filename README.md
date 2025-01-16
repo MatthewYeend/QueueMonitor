@@ -18,7 +18,7 @@ A Laravel package for real-time monitoring of queues with stats on processing ti
     ```
 2. Publish the configuration, views, and migrations: 
     ```bash
-    php artisan vendor:publish --provider="MattYeend\QueueMonitor\QueueMonitorServiceProvider"
+    php artisan vendor:publish --provider="MattYeend\QueueMonitoring\QueueMonitoringServiceProvider"
     ```
 3. Run the migrations to create the necessary database table:
     ```bash
