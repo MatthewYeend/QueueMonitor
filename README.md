@@ -28,6 +28,55 @@ A Laravel package for real-time monitoring of queues with stats on processing ti
 
 ---
 
+## Usage
+1. Queue Monitoring Dashboard
+Once installed, the package provides a monitoring dashboard accessible at `/queue-monitor` (or a custom route specified in `config/queue-monitor.php`). The dashboard displays:
+- The list of queues being monitored.
+- The number of jobs processed.
+- The number of failed jobs.
+- The average processing time for each queue.
+2. Automatically Updating Queue Statistics
+To update queue statistics after job processing: 
+- Inject the `QueueMonitorService` into your job classes or relevant services.
+- Use the `updateQueueStatus` method to log the queue name, processing time, and failure status.
+Example Integration in a Job:
+```php
+use MattYeend\QueueMonitoring\Services\QueueMonitorService;
+
+class ExampleJob implements ShouldQueue
+{
+    public function handle(QueueMonitorService $service)
+    {
+        $queueName = 'example-queue';
+        $startTime = microtime(true);
+
+        try {
+            // Performs job processing
+        } catch (\Exception $e) {
+            $service->updateQueueStatus($queueName, 0, true); // Log a failed job
+            throw $e;
+        }
+
+        $endTime = microtime(true);
+        $processingTime = ($endTime - $StartTime) * 1000; // Convert to milliseconds
+        $service->updateQueueStatus($queueName, $processingTime, false); // Log a successful job
+    }
+}
+```
+3. Customising the Dashboard
+You can customise the dashboard view by modifying the published Blade file
+`resources/views/vendor/queue-monitor/dashboard.blade.php`
+4. Custom Route
+The change the route for the dashboard, edit the `dashboard_route` value in the configuration file
+`'dashboard_route' => '/admin/queue-status'`
+5. Notifications for Failed Jobs
+To enable email notifications for failed jobs:
+- Add the following to your `.env` file:
+`QUEUE_MONITOR_NOTIFICATION_EMAIL=devops@yourcompany.com`
+- The configured email address will receive alerts whenever a job fails in a monitored queue.
+
+---
+
 ## Configuration
 ### `.env` File
 To configure email notifications for failed jobs, add the following line to your `.env` file:
