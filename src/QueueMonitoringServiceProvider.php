@@ -21,12 +21,20 @@ class QueueMonitoringServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/Http/Resources/views', 'queue-monitor');
         $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
+        $this->loadFactories();
 
         if($this->app->runningInConsole()){
             $this->publishes([
                 __DIR__ . '/config/queue-monitor.php' => config_path('queue-monitor.php'),
                 __DIR__ . '/Http/Resources/views' => resource_path('views/vendor/queue-monitor'),
             ]);
+        }
+    }
+
+    protected function loadFactories()
+    {
+        if($this->app()->runningInConsole() || $this->app->environment('local', 'testing', 'staging', 'development')){
+            $this->loadFactoriesFrom(__DIR__ . '/Database/factories');
         }
     }
 }
