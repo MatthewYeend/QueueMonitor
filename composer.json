@@ -25,7 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mattyeend\\QueueMonitoring\\": "src/"
+            "MattYeend\\QueueMonitoring\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "extra": {
@@ -34,5 +39,8 @@
                 "MattYeend\\QueueMonitoring\\QueueMonitoringServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
