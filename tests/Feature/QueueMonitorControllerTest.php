@@ -17,7 +17,7 @@ class QueueMonitorControllerTest extends TestCase
             'queue' => 'default',
             'processed' => 10,
             'failed' => 2,
-            'average_time' =< 150.5,
+            'average_time' => 150.5,
         ]);
 
         // Act: Make request to dashboard route
