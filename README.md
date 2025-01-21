@@ -92,6 +92,27 @@ To change the default URL route, modify the `config/queue-monitor.php` file. For
 
 ---
 
+## Tests
+### Setting Up the Test Environment
+1. Install Dependencies
+```bash
+composer install
+```
+2. Configure your environment
+Ensure your `.env` file is set up for testing. By default, the `TestCase` class configures an in-memory SQLite database for testing, so no additional setup is required.
+
+### Running the Test
+1. Run all tests
+```bash
+php artisan test
+```
+or:
+```bash
+./vendor/bin/phpunit
+```
+
+---
+
 ## License
 This package is licensed under the MIT License.
 
