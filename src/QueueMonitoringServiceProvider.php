@@ -33,7 +33,7 @@ class QueueMonitoringServiceProvider extends ServiceProvider
 
     protected function loadFactories()
     {
-        if($this->app()->runningInConsole() || $this->app->environment('local', 'testing', 'staging', 'development')){
+        if($this->app->runningInConsole() || $this->app->environment('local', 'testing', 'staging', 'development')){
             $this->loadFactoriesFrom(__DIR__ . '/Database/factories');
         }
     }
